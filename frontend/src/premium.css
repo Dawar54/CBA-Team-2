@@ -1,0 +1,152 @@
+/* ─── Premium UI Overrides ─── */
+
+:root {
+  --primary: #6366f1; /* Indigo 500 */
+  --primary-hover: #4f46e5;
+  --secondary: #10b981;
+  --dark: #0f172a;
+  --light: #f8fafc;
+  --gray: #64748b;
+  --hero-bg: linear-gradient(135deg, #1e1b4b 0%, #4338ca 100%);
+}
+
+body {
+  background-color: var(--bg-body);
+}
+
+/* ─── Hero Section ─── */
+.home-screen-wrapper {
+  margin-top: -70px; /* pull up under fixed navbar */
+}
+
+.hero-section {
+  background: var(--hero-bg);
+  min-height: 80vh;
+  padding-top: 100px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: url('https://www.transparenttextures.com/patterns/cubes.png');
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+.hero-title {
+  font-family: var(--font-family-heading);
+  text-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  animation: slideDown 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.hero-subtitle {
+  text-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  animation: slideUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.2s both;
+}
+
+.hero-btn {
+  color: var(--primary) !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: slideUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.4s both;
+}
+
+.hero-btn:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 10px 20px rgba(255,255,255,0.2) !important;
+  color: var(--primary-hover) !important;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── Section Titles ─── */
+.section-title {
+  color: var(--dark);
+  font-family: var(--font-family-heading);
+}
+
+.title-underline {
+  height: 4px;
+  width: 60px;
+  background: var(--primary);
+  border-radius: 2px;
+  margin-top: 8px;
+}
+
+/* ─── Product Card Premium Enhancements ─── */
+.product-card {
+  border: 1px solid var(--border-color);
+  background: var(--bg-card);
+  border-radius: 16px !important;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
+}
+
+.product-card .card-img {
+  transition: transform 0.5s ease;
+}
+
+.product-card:hover .card-img {
+  transform: scale(1.08);
+}
+
+.product-card a {
+  overflow: hidden;
+  display: block;
+}
+
+.product-title strong {
+  font-size: 1.1rem;
+  color: var(--text-main);
+  transition: color 0.2s;
+}
+
+.product-card:hover .product-title strong {
+  color: var(--primary);
+}
+
+/* ─── Custom Navbar Glassmorphism ─── */
+.navbar-custom {
+  background: var(--bg-nav) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+}
+
+.navbar-brand strong {
+  background: linear-gradient(90deg, var(--primary), #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 1.8rem;
+}
+
+/* ─── Empty State ─── */
+.empty-state {
+  animation: fadeIn 0.6s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ─── General Container styling ─── */
+main.py-3 {
+  padding-top: 0 !important; /* Let hero section handle top spacing */
+}
